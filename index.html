@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech-Space Solutions | IT Services Ghana</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f9ff;
+            color: #333;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            color: #004080;
+        }
+        
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #004080 0%, #0066cc 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: white;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            margin: 10px 0 0;
+            opacity: 0.9;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #002b5c;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 15px 25px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #004080;
+            text-decoration: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 68, 136, 0.7), rgba(0, 68, 136, 0.7)), 
+                              url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 30px;
+        }
+        
+        .hero h2 {
+            font-size: 2.2em;
+            margin: 0 0 15px;
+            color: white;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #004080;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #002b5c;
+            text-decoration: none;
+        }
+        
+        /* Services Section */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .service-img {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        
+        /* Partners Section */
+        .partners-section {
+            background-color: #e6f0fa;
+            padding: 40px 0;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .partner-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .partner-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .partner-story {
+            display: none;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .partner-story.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Clients Section */
+        .clients-section {
+            padding: 40px 0;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .client-logo {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .client-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Board of Directors */
+        .directors-section {
+            background-color: #e6f0fa;
+            padding: 40px 0;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+        
+        .directors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .director-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .director-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #004080;
+            margin: 0 auto 15px;
+            display: block;
+        }
+        
+        .director-card h4 {
+            margin: 10px 0 5px;
+            font-size: 1.2em;
+        }
+        
+        .director-position {
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        /* Contact Form */
+        .contact-section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #004080;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #004080;
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #004080;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #002b5c;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #002b5c 0%, #004080 100%);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        
+        .footer-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #cce0ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav a {
+                padding: 12px 20px;
+                text-align: center;
+            }
+            
+            .hero {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Tech-Space Solutions</h1>
+            <p>Innovative IT Solutions for Ghana's Digital Future</p>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="#board">Board</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Your Trusted Technology Partner</h2>
+                <p>Providing cutting-edge IT infrastructure, software solutions, and cybersecurity services to businesses across Ghana since 2018.</p>
+                <a href="#contact" class="btn">Request a Consultation</a>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section>
+            <h2>About Tech-Space Solutions</h2>
+            <p>Tech-Space Solutions is a leading Ghanaian IT company specializing in network infrastructure, software development, and digital security solutions. With our team of certified professionals and strategic partnerships with global technology leaders, we deliver reliable, scalable, and innovative technology solutions tailored to your business needs.</p>
+        </section>
+        
+        <!-- Services Section -->
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="services">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Network Infrastructure">
+                    </div>
+                    <div class="service-content">
+                        <h3>Network Infrastructure</h3>
+                        <p>Design, implementation, and maintenance of secure and high-performance network solutions for businesses of all sizes.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Fiber Optic">
+                    </div>
+                    <div class="service-content">
+                        <h3>Fiber Optic Solutions</h3>
+                        <p>High-speed fiber optic installation and maintenance for businesses requiring reliable, high-bandwidth connectivity.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="CCTV Security">
+                    </div>
+                    <div class="service-content">
+                        <h3>CCTV & Security Systems</h3>
+                        <p>Comprehensive surveillance solutions including IP cameras, access control, and security monitoring services.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Server Room">
+                    </div>
+                    <div class="service-content">
+                        <h3>Data Center Solutions</h3>
+                        <p>Enterprise-grade server room design, implementation, and maintenance with 24/7 monitoring support.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Software Development">
+                    </div>
+                    <div class="service-content">
+                        <h3>Custom Software Development</h3>
+                        <p>Tailored software solutions including web applications, mobile apps, and enterprise systems development.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1560732488-6b0df240254a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cybersecurity">
+                    </div>
+                    <div class="service-content">
+                        <h3>Cybersecurity Services</h3>
+                        <p>Comprehensive protection including vulnerability assessments, penetration testing, and security awareness training.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Partners Section -->
+        <section id="partners" class="partners-section">
+            <h2>Our Strategic Partners</h2>
+            <p>We collaborate with global technology leaders to bring world-class solutions to Ghanaian businesses.</p>
+            
+            <div class="partners-grid">
+                <!-- Partner 1 -->
+                <div class="partner-card" onclick="showPartnerStory('microsoft-story')">
+                    <div class="partner-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft">
+                    </div>
+                    <h4>Microsoft</h4>
+                    <p>Cloud Solutions Partner</p>
+                </div>
+                
+                <!-- Partner 2 -->
+                <div class="partner-card" onclick="showPartnerStory('cisco-story')">
+                    <div class="partner-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" alt="Cisco">
+                    </div>
+                    <h4>Cisco</h4>
+                    <p>Networking Partner</p>
+                </div>
+                
+                <!-- Partner 3 -->
+                <div class="partner-card" onclick="showPartnerStory('ibm-story')">
+                    <div class="partner-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM">
+                    </div>
+                    <h4>IBM</h4>
+                    <p>AI & Cloud Partner</p>
+                </div>
+                
+                <!-- Partner 4 -->
+                <div class="partner-card" onclick="showPartnerStory('huawei-story')">
+                    <div class="partner-logo">
+                        <img src="Huawei.png" alt="Huawei">
+                    </div>
+                    <h4>Huawei</h4>
+                    <p>Telecom Infrastructure</p>
+                </div>
+            </div>
+            
+            <!-- Partner Stories -->
+            <div id="microsoft-story" class="partner-story">
+                <h3>Our Partnership with Microsoft</h3>
+                <p>As a Microsoft Cloud Solutions Partner, Tech-Space Solutions has successfully migrated over 50 Ghanaian businesses to Azure cloud platforms. Our most notable project involved transitioning a major financial institution's entire infrastructure to Microsoft Azure, resulting in:</p>
+                <ul>
+                    <li>40% reduction in IT infrastructure costs</li>
+                    <li>99.99% uptime for critical banking applications</li>
+                    <li>Enhanced security with Azure Sentinel implementation</li>
+                </ul>
+                <p>We've trained over 500 professionals on Microsoft 365 tools and continue to implement hybrid cloud solutions for enterprises across West Africa.</p>
+            </div>
+            
+            <div id="cisco-story" class="partner-story">
+                <h3>Our Partnership with Cisco</h3>
+                <p>Tech-Space Solutions has been a Cisco Certified Partner since 2019, implementing networking solutions for some of Ghana's largest organizations:</p>
+                <ul>
+                    <li>Designed and deployed SD-WAN solutions for 3 national banks</li>
+                    <li>Implemented Cisco Meraki wireless networks for 10 educational institutions</li>
+                    <li>Provided cybersecurity solutions using Cisco Umbrella and Firepower</li>
+                </ul>
+                <p>Our Cisco-certified engineers maintain networks serving over 50,000 users across Ghana with 99.95% reliability.</p>
+            </div>
+            
+            <div id="ibm-story" class="partner-story">
+                <h3>Our Partnership with IBM</h3>
+                <p>Collaborating with IBM has enabled us to bring advanced AI and cloud solutions to Ghana:</p>
+                <ul>
+                    <li>Implemented IBM Watson for customer service automation at a major telecom</li>
+                    <li>Deployed IBM Cloud solutions for 10 medium-large enterprises</li>
+                    <li>Developed blockchain-based supply chain solutions for agricultural exporters</li>
+                </ul>
+                <p>Our work with IBM has helped clients achieve 70% faster customer response times and 30% operational efficiency improvements.</p>
+            </div>
+            
+            <div id="huawei-story" class="partner-story">
+                <h3>Our Partnership with Huawei</h3>
+                <p>As Huawei's certified implementation partner, we've delivered:</p>
+                <ul>
+                    <li>Fiber optic backbone networks for 5 cities in Ghana</li>
+                    <li>5G-ready infrastructure for mobile network operators</li>
+                    <li>Smart city solutions including surveillance and traffic management</li>
+                </ul>
+                <p>Our Huawei-certified technicians have installed over 200km of fiber optic cable and implemented enterprise networking solutions for organizations.</p>
+            </div>
+        </section>
+        
+        <!-- Clients Section -->
+        <section id="clients" class="clients-section">
+            <h2>Our Valued Clients</h2>
+            <p>We're proud to serve these leading organizations in Ghana:</p>
+            
+            <div class="clients-grid">
+                <!-- Client 1 -->
+                <div class="client-logo">
+                    <img src="three ports.png" alt="ECG">
+                </div>
+                
+                <!-- Client 2 -->
+                <div class="client-logo">
+                    <img src="Ghana Airpor.png" alt="GCB Bank">
+                </div>
+                
+                <!-- Client 3 -->
+                <div class="client-logo">
+                    <img src="Hammers.jpeg" alt="MTN Ghana">
+                </div>
+                
+                <!-- Client 4 -->
+                <div class="client-logo">
+                    <img src="dormaa.jpeg" alt="University of Ghana">
+                </div>
+                
+                <!-- Client 5 -->
+                <div class="client-logo">
+                    <img src="qgmi.png" alt="GRA">
+                </div>
+                
+                <!-- Client 6 -->
+                <div class="client-logo">
+                    <img src="download.png" alt="Vodafone Ghana">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Board of Directors -->
+        <section id="board" class="directors-section">
+            <h2>Board of Directors</h2>
+            <p>Meet the leadership team driving Tech-Space Solutions' vision</p>
+            
+            <div class="directors-grid">
+                <!-- Director 1 -->
+                <div class="director-card">
+                    <img src="Mega.jpeg" alt="Believer Mensah Kpotosu" class="director-photo">
+                    <h4>Believer Mensah Kpotosu</h4>
+                    <p class="director-position">Founder & CEO</p>
+                    <p>15+ years in IT infrastructure and telecommunications</p>
+                </div>
+                
+                <!-- Director 2 -->
+                <div class="director-card">
+                    <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Ama Serwaa" class="director-photo">
+                    <h4>Fred Wosornu</h4>
+                    <p class="director-position">Chief Technology Officer</p>
+                    <p>Former lead technician at a Blessed Keys Ghana Limited</p>
+                </div>
+                
+                <!-- Director 3 -->
+                <div class="director-card">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Yaw Boateng" class="director-photo">
+                    <h4>Philipa Osei Nyarko</h4>
+                    <p class="director-position">Chief Financial Officer</p>
+                    <p>10 years experience in BMK Enterprise Ghana Limited</p>
+                </div>
+                
+                <!-- Director 4 -->
+                <div class="director-card">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Esi Mensah" class="director-photo">
+                    <h4>Kwasi Mensah</h4>
+                    <p class="director-position">Director of Operations</p>
+                    <p>Specializes in large-scale IT project management</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Form Section -->
+        <section id="contact" class="contact-section">
+            <h2>Request Our Services</h2>
+            <p>Fill out the form below and our team will contact you within 24 hours</p>
+            
+            <form id="service-request-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Service Needed</label>
+                    <select id="service" name="service" class="form-control" required>
+                        <option value="">Select a service</option>
+                        <option value="network">Network Infrastructure</option>
+                        <option value="fiber">Fiber Optic Solutions</option>
+                        <option value="cctv">CCTV & Security Systems</option>
+                        <option value="server">Data Center Solutions</option>
+                        <option value="software">Custom Software Development</option>
+                        <option value="cyber">Cybersecurity Services</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Project Details</label>
+                    <textarea id="message" name="message" class="form-control" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </form>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>Tech-Space Solutions is a leading Ghanaian IT company providing innovative technology solutions since 2018.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#partners">Partners</a></li>
+                        <li><a href="#clients">Clients</a></li>
+                        <li><a href="#board">Board</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Network Infrastructure</a></li>
+                        <li><a href="#">Fiber Optic Solutions</a></li>
+                        <li><a href="#">Software Development</a></li>
+                        <li><a href="#">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p>Spintex Road, Opposite Hydroform Estate</p>
+                    <p>Accra, Ghana</p>
+                    <p>Email: techspacesolutions1@gmail.com</p>
+                    <p>Phone: 0204244830 | 0540879256</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Tech-Space Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Partner story functionality
+        function showPartnerStory(storyId) {
+            // Hide all partner stories
+            document.querySelectorAll('.partner-story').forEach(story => {
+                story.classList.remove('active');
+            });
+            
+            // Show the selected story
+            document.getElementById(storyId).classList.add('active');
+            
+            // Scroll to the story for better UX
+            document.getElementById(storyId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // Form submission handling
+        document.getElementById('service-request-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send this data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you, ${name}! Your request for ${service} services has been received. We'll contact you shortly at ${email} or ${phone}.`);
+            
+            // Reset the form
+            this.reset();
+        });
+        
+        // Hide all stories initially
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.partner-story').forEach(story => {
+                story.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
